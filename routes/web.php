@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::get('/home',[\App\Http\Controllers\HomeController::class,'index']);
 
 
+// add book route
+Route::post('/admin/addBook',[\App\Http\Controllers\AdminController::class,'addBook'])->name('addBook');
+Route::get('/admin/allBook',[\App\Http\Controllers\AdminController::class,'allBook'])->name('allBook');
+
 
 // auth routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
