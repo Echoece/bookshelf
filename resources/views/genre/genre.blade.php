@@ -402,64 +402,57 @@
         }
     </style>
 </head>
-
 <body class="antialiased">
-    {{--    nav bar--}}
-    <nav class="navbar bg-black navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid  ">
-            <a class="navbar-brand text-white" href="/">BookShelf</a>
-            <div class="collapse navbar-collapse d-flex justify-content-center " id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item m-2">
-                        <a class="nav-link text-white " aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link text-white " href="/booklist">BookList</a>
-                    </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Writers</a>
-                    </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Genre</a>
-                    </li>
-                    <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Request Book</a>
-                    </li>
-                    <li>
-                        @if (Route::has('login'))
-                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                @auth
-                                    <a href="{{ url('/dashboard') }}"
-                                       class="text-sm text-white dark:text-gray-500 underline">Dashboard</a>
-                                @else
-                                    <a href="{{ route('login') }}"
-                                       class="text-sm text-white dark:text-gray-500 underline">Log in</a>
+{{--    nav bar--}}
+<nav class="navbar bg-black navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid  ">
+        <a class="navbar-brand text-white" href="/">BookShelf</a>
+        <div class="collapse navbar-collapse d-flex justify-content-center " id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item m-2">
+                    <a class="nav-link text-white " aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a class="nav-link text-white " href="#">BookList</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a class="nav-link text-white" href="#">Writers</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a class="nav-link text-white" href="#">Genre</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a class="nav-link text-white" href="#">Request Book</a>
+                </li>
+                <li>
+                    @if (Route::has('login'))
+                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                            @auth
+                                <a href="{{ url('/dashboard') }}"
+                                   class="text-sm text-white dark:text-gray-500 underline">Dashboard</a>
+                            @else
+                                <a href="{{ route('login') }}"
+                                   class="text-sm text-white dark:text-gray-500 underline">Log in</a>
 
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}"
-                                           class="ml-4 text-sm text-white dark:text-gray-500 underline">Register</a>
-                                    @endif
-                                @endauth
-                            </div>
-                        @endif
-                    </li>
-                </ul>
-            </div>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                       class="ml-4 text-sm text-white dark:text-gray-500 underline">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
+                </li>
+            </ul>
         </div>
-    </nav>
-    {{--  background image  --}}
-    <div class="container-fluid w-100 bg-gray-100">
-        <img class="img-fluid w-100" src="../image/bg-1.jpg" alt="background">
     </div>
-    <div class="conainer-fluid w-100">
-        <img class="img-fluid w-100" src="../image/bg-2.png" alt="">
-    </div>
+</nav>
 
 
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-    </body>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
 </html>

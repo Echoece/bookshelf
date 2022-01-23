@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home',[\App\Http\Controllers\HomeController::class,'index']);
+Route::get('/booklist',[\App\Http\Controllers\BookController::class,'index']);
 
-
-// add book route
+// admin add book route
 Route::post('/admin/addBook',[\App\Http\Controllers\AdminController::class,'addBook'])->name('addBook');
 Route::get('/admin/allBook',[\App\Http\Controllers\AdminController::class,'allBook'])->name('allBook');
 

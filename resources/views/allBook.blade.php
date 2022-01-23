@@ -20,11 +20,12 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php($i=1)
                 @foreach($books as $book)
                     <tr>
-                        <th>1</th>
+                        <th>{{$i++}}</th>
                         <td>{{$book->book_name}}</td>
-                        <td>{{$book->writer_id}}</td>
+                        <td>{{$book->writer_name}}</td>
                         <td>{{$book->genre}}</td>
                         <td>{{$book->publication}}</td>
                         <td>{{$book->publish_year}}</td>

@@ -22,9 +22,13 @@ class AdminController extends Controller
         $book->genre = $request->genre;
         $book->publish_year = $request->publish_year;
         $book->publication = $request->publication;
-        $book->writer_id = $request->writer_id;
+        $book->writer_id = 1;
+        $book->writer_name = $request->writer_name;
         $book->description = $request->description;
         // saving into table
         $book->save();
+
+        // redirecting users with success message into session
+        return redirect()->back()->with('success','Book Added Successfully');
     }
 }

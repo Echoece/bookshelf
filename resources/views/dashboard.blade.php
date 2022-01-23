@@ -1,14 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Add Book
+            Add Book Page
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="container">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card ">
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{session('success')}}</strong>
+                    </div>
+                    @endif
                     <div class="card-header">Add Book</div>
                     <div class="card-body">
                         <form action="{{route('addBook')}}" method="post">
@@ -33,8 +38,8 @@
                                 <input type="text" class="form-control" name="publish_year" id="publish_year">
                             </div>
                             <div class="form-group">
-                                <label for="writer_id">Writer Id</label>
-                                <input type="text" class="form-control" name="writer_id" id="writer_id">
+                                <label for="writer_name">Writer name</label>
+                                <input type="text" class="form-control" name="writer_name" id="writer_name">
                             </div>
                             <div class="form-group">
                                 <label for="description">description</label>

@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('book_name');
             $table->string('genre');
             $table->string('publication');
+            $table->string('writer_name');
             $table->integer('publish_year');
             $table->unsignedBigInteger('writer_id');
             $table->string('description');

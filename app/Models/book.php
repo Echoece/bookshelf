@@ -16,5 +16,6 @@ class book extends Model
         'publish_year',
         'writer_id',
         'description',
+        'writer_name'
     ];
 }
