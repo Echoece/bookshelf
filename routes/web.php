@@ -24,9 +24,12 @@ Route::post('/books/edit/{id}',[\App\Http\Controllers\BookController::class,'upd
 Route::get('/books/delete/{id}',[\App\Http\Controllers\BookController::class,'deleteBook']);
 Route::get('/books/details/{id}',[\App\Http\Controllers\BookController::class,'detailsBook']);
 
+Route::post('/comment/{id}',[\App\Http\Controllers\commentController::class,'comment']);
+
 Route::get('/genre',[\App\Http\Controllers\genreController::class,'index']);
 Route::get('/writer',[\App\Http\Controllers\writerController::class,'index']);
 Route::get('/request_book',[\App\Http\Controllers\requestBookController::class,'index']);
+Route::post('/request_book',[\App\Http\Controllers\requestBookController::class,'bookRequest']);
 
 // admin add book route
 Route::post('/admin/addBook',[\App\Http\Controllers\AdminController::class,'addBook'])->name('addBook');

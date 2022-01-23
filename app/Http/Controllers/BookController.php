@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\book;
+use App\Models\rating;
 use Illuminate\Http\Request;
 use DB;
 
@@ -45,7 +46,9 @@ class BookController extends Controller
 
     public function detailsBook($id){
         $book = book::find($id);
+        $ratings = rating::all();
+        $averageRating = DB::table('ratings')->where('book_id','=',$id)->avg('rating');
 
-        return view('books.bookDetails',compact('book'));
+        return view('books.bookDetails',compact('book','ratings','averageRating'));
     }
 }

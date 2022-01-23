@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -452,27 +453,49 @@
     <div class="card">
         <img src="" alt="" class="card-img-top">
         <div class="card-body">
-            <div class="card-title text-center">{{$book->book_name}}</div>
+            <h3 class="card-title text-center">{{$book->book_name}}</h3>
+            <strong>Description</strong>
             <p class="card-text">{{$book->description}}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Author: {{$book->writer_name}}</li>
             <li class="list-group-item">Publish Year: {{$book->publish_year}}</li>
+            <li class="list-group-item">average Rating: {{$averageRating}}</li>
         </ul>
 
     </div>
 
     <div class="container mt-8">
-        <form action="" method="post">
+        <form action="{{url('comment/'.$book->id)}}" method="post">
+            @csrf
             <div class="form-group">
                 <label for="comment">Comment</label>
                 <textarea name="comment" class="form-control" rows="3"></textarea>
             </div>
+            <div class="form-group mt-4">
+                <label for="rating">Select your rating for this book</label>
+                <select class="form-control" name="rating" id="rating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
             <button type="submit" class="m-4 btn btn-primary">Send</button>
         </form>
     </div>
+</div>
 
+<div class="container">
+    @foreach($ratings as $rating )
+        <div class="card m-2">
 
+            <p class="text-center">Commented on {{$rating->created_at}} </p>
+            <h4>{{$rating->user->name}} Says</h4>
+            <p class="bg-info">{{$rating->comment}}</p>
+        </div>
+    @endforeach
 </div>
 
 

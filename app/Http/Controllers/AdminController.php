@@ -30,6 +30,7 @@ class AdminController extends Controller
         $book->writer_id = 1;
         $book->writer_name = $request->writer_name;
         $book->description = $request->description;
+
         // Insert into table
         $book->save();
 

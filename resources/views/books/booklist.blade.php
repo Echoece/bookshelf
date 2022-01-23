@@ -468,7 +468,9 @@
             @foreach($books as $book)
                 <tr>
                     <th>{{$i++}}</th>
-                    <td>{{$book->book_name}}</td>
+                    <td >
+                        <a class="link-primary" href="{{url('books/details/'.$book->id)}}">{{$book->book_name}}</a>
+                    </td>
                     <td>{{$book->writer_name}}</td>
                     <td>{{$book->genre}}</td>
                     <td>{{$book->publication}}</td>

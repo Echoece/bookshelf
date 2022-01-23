@@ -447,6 +447,28 @@
     </div>
 </nav>
 
+<div class="container">
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    <h3>Request For Book</h3>
+    <form action="/request_book" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="book_name">Book Name</label>
+            <input type="text" class="form-control" name="book_name" id="book_name">
+        </div>
+
+        <button type="submit" class="btn btn-primary m-4">Request Book</button>
+
+    </form>
+</div>
 
 
 <!-- JavaScript Bundle with Popper -->
