@@ -30,6 +30,13 @@
                         <td>{{$book->publication}}</td>
                         <td>{{$book->publish_year}}</td>
                         <td class="overflow-auto">{{$book->description}}</td>
+                        <td>
+                            <a href="{{ url('books/edit/'.$book->id)  }}" class="btn btn-info">Update</a>
+
+                        </td>
+                        <td>
+                            <a href="{{ url('books/delete/'.$book->id)  }}" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

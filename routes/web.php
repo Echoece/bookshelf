@@ -17,8 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[\App\Http\Controllers\HomeController::class,'index']);
+// user routes
 Route::get('/booklist',[\App\Http\Controllers\BookController::class,'index']);
+Route::get('/books/edit/{id}',[\App\Http\Controllers\BookController::class,'editBook']);
+Route::post('/books/edit/{id}',[\App\Http\Controllers\BookController::class,'updateBook']);
+Route::get('/books/delete/{id}',[\App\Http\Controllers\BookController::class,'deleteBook']);
+Route::get('/books/details/{id}',[\App\Http\Controllers\BookController::class,'detailsBook']);
+
+Route::get('/genre',[\App\Http\Controllers\genreController::class,'index']);
+Route::get('/writer',[\App\Http\Controllers\writerController::class,'index']);
+Route::get('/request_book',[\App\Http\Controllers\requestBookController::class,'index']);
 
 // admin add book route
 Route::post('/admin/addBook',[\App\Http\Controllers\AdminController::class,'addBook'])->name('addBook');

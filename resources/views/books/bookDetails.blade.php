@@ -447,41 +447,33 @@
     </div>
 </nav>
 
-<div class="py-12">
+<div class="container p-6">
 
-    <div class="container p-6">
-        <h1 class="text-info text-center ">All Book List</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th class="col">#</th>
-                <th class="col">Name</th>
-                <th class="col">Writer</th>
-                <th class="col">Genre</th>
-                <th class="col">publication</th>
-                <th class="col">published at</th>
-                <th class="col">Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            @php($i=1)
-            @foreach($books as $book)
-                <tr>
-                    <th>{{$i++}}</th>
-                    <td>{{$book->book_name}}</td>
-                    <td>{{$book->writer_name}}</td>
-                    <td>{{$book->genre}}</td>
-                    <td>{{$book->publication}}</td>
-                    <td>{{$book->publish_year}}</td>
-                    <td class="overflow-auto">{{$book->description}}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        {{$books->links()}}
+    <div class="card">
+        <img src="" alt="" class="card-img-top">
+        <div class="card-body">
+            <div class="card-title text-center">{{$book->book_name}}</div>
+            <p class="card-text">{{$book->description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Author: {{$book->writer_name}}</li>
+            <li class="list-group-item">Publish Year: {{$book->publish_year}}</li>
+        </ul>
+
     </div>
-</div>
 
+    <div class="container mt-8">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea name="comment" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="m-4 btn btn-primary">Send</button>
+        </form>
+    </div>
+
+
+</div>
 
 
 <!-- JavaScript Bundle with Popper -->

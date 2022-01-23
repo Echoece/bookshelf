@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\book;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,11 @@ class AdminController extends Controller
 {
     //
     public function allBook(){
-        $books =  book::all();
+        // Read from the  table
+        $books = DB::table('books')->latest()->get();
+
+        //$books =  book::all();    <-- using model, another way of doing same thing
+
         return view('allBook',compact('books'));
     }
 
@@ -25,7 +30,7 @@ class AdminController extends Controller
         $book->writer_id = 1;
         $book->writer_name = $request->writer_name;
         $book->description = $request->description;
-        // saving into table
+        // Insert into table
         $book->save();
 
         // redirecting users with success message into session

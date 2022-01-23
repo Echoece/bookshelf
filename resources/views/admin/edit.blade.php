@@ -448,41 +448,56 @@
 </nav>
 
 <div class="py-12">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="card ">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                <h1 class="text-info text-center card-header">Edit Book</h1>
+                <div class="card-body">
+                    <form action="{{url('books/edit/'.$book->id)}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="book_name">Book Name</label>
+                            <input type="text" class="form-control" name="book_name" id="book_name" value="{{$book->book_name}}">
+                            {{--@error('book_name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror--}}
+                        </div>
+                        <div class="form-group">
+                            <label for="genre">Genre</label>
+                            <input type="text" class="form-control" name="genre" id="genre" value="{{$book->genre}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="publication">publication</label>
+                            <input type="text" class="form-control" name="publication" id="publication" value="{{$book->publication}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="publish_year">publish_year</label>
+                            <input type="text" class="form-control" name="publish_year" id="publish_year" value="{{$book->publish_year}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="writer_name">Writer name</label>
+                            <input type="text" class="form-control" name="writer_name" id="writer_name" value="{{$book->writer_name}}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="description">description</label>
+                            <input type="text" class="form-control" name="description" id="description" value="{{$book->description}}" >
+                        </div>
 
-    <div class="container p-6">
-        <h1 class="text-info text-center ">All Book List</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th class="col">#</th>
-                <th class="col">Name</th>
-                <th class="col">Writer</th>
-                <th class="col">Genre</th>
-                <th class="col">publication</th>
-                <th class="col">published at</th>
-                <th class="col">Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            @php($i=1)
-            @foreach($books as $book)
-                <tr>
-                    <th>{{$i++}}</th>
-                    <td>{{$book->book_name}}</td>
-                    <td>{{$book->writer_name}}</td>
-                    <td>{{$book->genre}}</td>
-                    <td>{{$book->publication}}</td>
-                    <td>{{$book->publish_year}}</td>
-                    <td class="overflow-auto">{{$book->description}}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        {{$books->links()}}
+                        <button type="submit" class="btn btn-primary m-4">Update Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

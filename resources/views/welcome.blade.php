@@ -417,13 +417,13 @@
                         <a class="nav-link text-white " href="/booklist">BookList</a>
                     </li>
                     <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Writers</a>
+                        <a class="nav-link text-white" href="/writer">Writers</a>
                     </li>
                     <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Genre</a>
+                        <a class="nav-link text-white" href="/genre">Genre</a>
                     </li>
                     <li class="nav-item m-2">
-                        <a class="nav-link text-white" href="#">Request Book</a>
+                        <a class="nav-link text-white" href="/request_book">Request Book</a>
                     </li>
                     <li>
                         @if (Route::has('login'))

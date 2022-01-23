@@ -413,16 +413,16 @@
                     <a class="nav-link text-white " aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link text-white " href="#">BookList</a>
+                    <a class="nav-link text-white " href="/booklist">BookList</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link text-white" href="#">Writers</a>
+                    <a class="nav-link text-white" href="/writer">Writers</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link text-white" href="#">Genre</a>
+                    <a class="nav-link text-white" href="/genre">Genre</a>
                 </li>
                 <li class="nav-item m-2">
-                    <a class="nav-link text-white" href="#">Request Book</a>
+                    <a class="nav-link text-white" href="/request_book">Request Book</a>
                 </li>
                 <li>
                     @if (Route::has('login'))
@@ -447,7 +447,28 @@
     </div>
 </nav>
 
+<div class="container p-6">
+    <h1 class="text-info text-center ">All Book List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">Writer</th>
 
+        </tr>
+        </thead>
+        <tbody>
+        @php($i=1)
+        @foreach($writers as $writer)
+            <tr>
+                <th>{{$i++}}</th>
+                <td>{{$writer->writer_name}}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+</div>
 
 
 <!-- JavaScript Bundle with Popper -->
