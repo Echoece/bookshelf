@@ -450,7 +450,7 @@
 <div class="py-12">
 
     <div class="container p-6">
-        <h1 class="text-info text-center ">All Book List</h1>
+        <h1 class="text-info text-center ">List of Books</h1>
         <table class="table table-striped">
             <thead>
             <tr>

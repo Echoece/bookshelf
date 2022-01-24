@@ -13,4 +13,17 @@ class writerController extends Controller
 
         return view('writer.writer',compact('writers'));
     }
+
+
+    // sub-query uses here
+    public function bookByWriter($writer_name){
+        $books = DB::table('books')
+            ->where('writer_id','=', function ($query) use ($writer_name) {
+                $query->  select('id')->from('writers')->where('writer_name','=',$writer_name);
+            })
+            ->latest()->paginate(5)->onEachSide(2);
+
+
+        return view('writer.bookByWriter',compact('books'));
+    }
 }

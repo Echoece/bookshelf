@@ -46,7 +46,7 @@ class BookController extends Controller
 
     public function detailsBook($id){
         $book = book::find($id);
-        $ratings = rating::all();
+        $ratings = rating::all()->where('book_id','=',$id);
         $averageRating = DB::table('ratings')->where('book_id','=',$id)->avg('rating');
 
         return view('books.bookDetails',compact('book','ratings','averageRating'));

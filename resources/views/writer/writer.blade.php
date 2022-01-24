@@ -448,7 +448,7 @@
 </nav>
 
 <div class="container p-6">
-    <h1 class="text-info text-center ">All Book List</h1>
+    <h1 class="text-info text-center ">List of Writer</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -462,7 +462,9 @@
         @foreach($writers as $writer)
             <tr>
                 <th>{{$i++}}</th>
-                <td>{{$writer->writer_name}}</td>
+                <td >
+                    <a class="link-primary" href="{{url('writer/'.$writer->writer_name)}}">{{$writer->writer_name}}</a>
+                </td>
             </tr>
         @endforeach
         </tbody>

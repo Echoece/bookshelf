@@ -460,7 +460,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Author: {{$book->writer_name}}</li>
             <li class="list-group-item">Publish Year: {{$book->publish_year}}</li>
+            @if($averageRating)
             <li class="list-group-item">average Rating: {{$averageRating}}</li>
+            @endif
         </ul>
 
     </div>
@@ -492,7 +494,7 @@
         <div class="card m-2">
 
             <p class="text-center">Commented on {{$rating->created_at}} </p>
-            <h4>{{$rating->user->name}} Says</h4>
+            <p><strong >{{$rating->user->name}}</strong>  rated this book <strong>{{$rating->rating}}</strong> out of <strong>5</strong> </p>
             <p class="bg-info">{{$rating->comment}}</p>
         </div>
     @endforeach

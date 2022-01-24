@@ -448,7 +448,7 @@
 </nav>
 
 <div class="container p-6">
-    <h1 class="text-info text-center ">All Book List</h1>
+    <h1 class="text-info text-center ">List of Genre</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -462,7 +462,9 @@
         @foreach($genres as $genre)
             <tr>
                 <th>{{$i++}}</th>
-                <td>{{$genre->genre}}</td>
+                <td >
+                    <a class="link-primary" href="{{url('genre/'.$genre->genre)}}">{{$genre->genre}}</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
