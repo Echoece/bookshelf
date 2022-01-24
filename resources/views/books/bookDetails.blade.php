@@ -451,7 +451,13 @@
 <div class="container p-6">
 
     <div class="card">
-        <img src="" alt="" class="card-img-top">
+        <div class="container">
+            <div class="col-md-4 px-0">
+                <img src="../../image/book.jpg" alt="" class="card-img-top">
+            </div>
+        </div>
+
+
         <div class="card-body">
             <h3 class="card-title text-center">{{$book->book_name}}</h3>
             <strong>Description</strong>
@@ -460,6 +466,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Author: {{$book->writer_name}}</li>
             <li class="list-group-item">Publish Year: {{$book->publish_year}}</li>
+            <li class="list-group-item">Genre : {{$book->genre}}</li>
+            <li class="list-group-item">Publication: {{$book->publication}}</li>
+
             @if($averageRating)
             <li class="list-group-item">average Rating: {{$averageRating}}</li>
             @endif

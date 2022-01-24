@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\writer;
 use DB;
 use App\Models\book;
 use Illuminate\Http\Request;
@@ -20,6 +21,16 @@ class AdminController extends Controller
 
     public function addBook(Request $request){
         // to do : from data validation
+        $author = DB::table('writers')->where('writer_name','=',$request->writer_name)->get('id');
+
+        if($author->isEmpty()){
+            $writer = new writer();
+            $writer->writer_name = $request->writer_name;
+            $writer->save();
+        }
+
+        $writer_id = DB::table('writers')->where('writer_name','=',$request->writer_name)->value('id');
+
 
         // creating object and setting data
         $book = new book();
@@ -27,7 +38,7 @@ class AdminController extends Controller
         $book->genre = $request->genre;
         $book->publish_year = $request->publish_year;
         $book->publication = $request->publication;
-        $book->writer_id = 1;
+        $book->writer_id = $writer_id;
         $book->writer_name = $request->writer_name;
         $book->description = $request->description;
 

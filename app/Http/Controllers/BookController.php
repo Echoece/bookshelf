@@ -11,7 +11,7 @@ class BookController extends Controller
 {
     //
     public function index(){
-        $books = DB::table('books')->latest()->paginate(5)->onEachSide(2);
+        $books = DB::table('books')->orderBy('book_name')->latest()->paginate(10)->onEachSide(2);
 
         return view('books.booklist',compact('books'));
     }
