@@ -18,4 +18,8 @@ class book extends Model
         'description',
         'writer_name'
     ];
+
+    public function author(){
+        return $this->hasOne(writer::class,'id','writer_id');
+    }
 }

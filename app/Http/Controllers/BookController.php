@@ -25,12 +25,14 @@ class BookController extends Controller
     }
 
     public function updateBook(Request $request, $id){
+        $authorId= book::find($id)->author->id;
+
         $book =  book::find($id)->update([
             'book_name' => $request->book_name,
             'genre' => $request->genre,
             'publish_year' => $request->publish_year,
             'publication' => $request->publication,
-            'writer_id' => 1,
+            'writer_id' => $authorId,
             'writer_name' => $request->writer_name,
             'description' => $request->description,
         ]);
